@@ -13,7 +13,7 @@ class menu:
         self.window.addstr(8, 16, "Dimensiones: ")
         self.window.addstr(9, 20, "Enter Guardar")
         self.window.addstr(10, 20, "ESC Regresar")        
-        self.window.addstr(19, 2, "Ejemplo de dimensiones: x,y")
+        self.window.addstr(19, 2, "Ejemplo de dimensiones: col,fila")
         posx = posinicio = 29
         dimensiones = ""
         while True:
@@ -28,7 +28,7 @@ class menu:
                     self.window.addstr(8, 16, "Dimensiones: ")
                     self.window.addstr(9, 20, "Enter Guardar")
                     self.window.addstr(10, 20, "ESC Regresar")        
-                    self.window.addstr(19, 2, "Ejemplo de dimensiones: x,y")
+                    self.window.addstr(19, 2, "Ejemplo de dimensiones: col,fila")
                     self.window.addstr(8, posinicio, dimensiones)
                     self.window.addstr(8, posx, chr(event))
                     posx += 1
@@ -41,7 +41,7 @@ class menu:
                             self.window.addstr(8, 16, "Dimensiones: ")
                             self.window.addstr(9, 20, "Enter Guardar")
                             self.window.addstr(10, 20, "ESC Regresar")        
-                            self.window.addstr(19, 2, "Ejemplo de dimensiones: x,y")
+                            self.window.addstr(19, 2, "Ejemplo de dimensiones: col,fila")
                             dimensiones = dimensiones[:-1]
                             self.window.addstr(8, posinicio, dimensiones)
                             posx -= 1
