@@ -18,7 +18,7 @@ class graficar:
         for fil in range(self.dimensiony):
             for col in range(self.dimensionx):
                 if fil == self.posiciony and col == self.posicionx:
-                    grafica += str("nodo" + str(fil) + "_" + str(col) + "[style=\"filled\" label=\"(" + str(fil) + "," + str(col) + ")\" pos=\"" + str(posx) + "," + str(posy) + "!\" fillcolor=\"#ff7f0e\"];\n")
+                    grafica += str("nodo" + str(fil) + "_" + str(col) + "[style=\"filled\" label=\"(" + str(fil) + "," + str(col) + ")\" pos=\"" + str(posx) + "," + str(posy) + "!\" fillcolor=\"darkseagreen1\"];\n")
                 else:    
                     grafica += str("nodo" + str(fil) + "_" + str(col) + "[label=\"(" + str(fil) + "," + str(col) + ")\" pos=\"" + str(posx) + "," + str(posy) + "!\"];\n")
                 posx += 1
@@ -26,22 +26,26 @@ class graficar:
             posy -= 1
         grafica += str("}\n}\n")
         grafica += str("subgraph clusterlinealizacion{\n")
+        grafica += str("node[shape = record];\n")
+        pos = 0
         if tipo == 49:
             for fil in range(self.dimensiony):
                 for col in range(self.dimensionx):
                     if fil == self.posiciony and col == self.posicionx:
-                        grafica += str("lineal" + str(fil) + "_" + str(col) + "[style=\"filled\" label=\"(" + str(fil) + "," + str(col) + ")\" pos=\"" + str(posx) + "," + str(posy) + "!\" fillcolor=\"#ff7f0e\"];\n")
+                        grafica += str("lineal" + str(fil) + "_" + str(col) + "[style=\"filled\" label=\"{" + str(pos) + "|{(" + str(fil) + "," + str(col) + ")}" + "}\" pos=\"" + str(posx) + "," + str(posy) + "!\" fillcolor=\"darkseagreen1\"];\n")
                     else:
-                        grafica += str("lineal" + str(fil) + "_" + str(col) + "[label=\"(" + str(fil) + "," + str(col) + ")\" pos=\"" + str(posx) + "," + str(posy) + "!\"];\n")
+                        grafica += str("lineal" + str(fil) + "_" + str(col) + "[label=\"{" + str(pos) + "|{(" + str(fil) + "," + str(col) + ")}" + "}\" pos=\"" + str(posx) + "," + str(posy) + "!\"];\n")
                     posx += 1
+                    pos += 1
         else:
             for col in range(self.dimensionx):
                 for fil in range(self.dimensiony):
                     if fil == self.posiciony and col == self.posicionx:
-                        grafica += str("lineal" + str(fil) + "_" + str(col) + "[style=\"filled\" label=\"(" + str(fil) + "," + str(col) + ")\" pos=\"" + str(posx) + "," + str(posy) + "!\" fillcolor=\"#ff7f0e\"];\n")
+                        grafica += str("lineal" + str(fil) + "_" + str(col) + "[style=\"filled\" label=\"{" + str(pos) + "|{(" + str(fil) + "," + str(col) + ")}" + "}\" pos=\"" + str(posx) + "," + str(posy) + "!\" fillcolor=\"darkseagreen1\"];\n")
                     else:
-                        grafica += str("lineal" + str(fil) + "_" + str(col) + "[label=\"(" + str(fil) + "," + str(col) + ")\" pos=\"" + str(posx) + "," + str(posy) + "!\"];\n")
+                        grafica += str("lineal" + str(fil) + "_" + str(col) + "[label=\"{" + str(pos) + "|{(" + str(fil) + "," + str(col) + ")}" + "}\" pos=\"" + str(posx) + "," + str(posy) + "!\"];\n")
                     posy -= 1
+                    pos += 1
         
         grafica += str("}\n}")
         print(grafica)
