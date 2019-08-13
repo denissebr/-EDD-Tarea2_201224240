@@ -48,7 +48,7 @@ while True:
                     window .addstr(10, 20, "Resultado {}".format(resultado))
                     window.addstr(11, 11, "1 Regresar al menu principal")
                     gra = graficar.graficar(int(dimensionx), int(dimensiony), int(posicionx), int(posiciony))
-                    gra.creargrafica()
+                    gra.creargrafica(tecla)
                     tecla1 = -1
                     while tecla1 != 49:
                         tecla1 = window.getch()
